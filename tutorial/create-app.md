@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD002 MD041 -->
 
-Ouvrez votre interface de ligne de commande (CLI), accédez à un répertoire dans lequel vous disposez de droits de création de fichiers et exécutez les commandes suivantes pour installer l'outil de création d'application de [réaction](https://www.npmjs.com/package/create-react-app) et créer une nouvelle application REACT.
+Ouvrez votre interface de ligne de commande (CLI), accédez à un répertoire dans lequel vous disposez de droits de création de fichiers et exécutez les commandes suivantes pour installer l’outil de création d’application de [réaction](https://www.npmjs.com/package/create-react-app) et créer une nouvelle application REACT.
 
 ```Shell
 npm install create-react-app@2.1.5 -g
@@ -13,16 +13,16 @@ Une fois la commande terminée, accédez au `graph-tutorial` répertoire dans vo
 npm start
 ```
 
-Votre navigateur par défaut s' [https://localhost:3000/](https://localhost:3000) ouvre sur avec une page REACT par défaut. Si votre navigateur ne s'ouvre pas, ouvrez-le [https://localhost:3000/](https://localhost:3000) et accédez à pour vérifier que la nouvelle application fonctionne.
+Votre navigateur par défaut s' [https://localhost:3000/](https://localhost:3000) ouvre sur avec une page REACT par défaut. Si votre navigateur ne s’ouvre pas, ouvrez-le [https://localhost:3000/](https://localhost:3000) et accédez à pour vérifier que la nouvelle application fonctionne.
 
 Avant de poursuivre, installez des packages supplémentaires que vous utiliserez plus tard:
 
-- [REACT-Router-DOM](https://github.com/ReactTraining/react-router) pour le routage déclaratif au sein de l'application REACT.
+- [REACT-Router-DOM](https://github.com/ReactTraining/react-router) pour le routage déclaratif au sein de l’application REACT.
 - [bootstrap](https://github.com/twbs/bootstrap) pour le style et les composants communs.
 - [reactstrap](https://github.com/reactstrap/reactstrap) pour les composants REACT basés sur bootstrap.
-- [fontawesome](https://github.com/FortAwesome/Font-Awesome) n'est pas disponible pour les icônes.
+- [fontawesome](https://github.com/FortAwesome/Font-Awesome) n’est pas disponible pour les icônes.
 - [moment](https://github.com/moment/moment) de mise en forme des dates et des heures.
-- [MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-js) pour l'authentification auprès d'Azure Active Directory et pour la récupération des jetons d'accès.
+- [MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-js) pour l’authentification auprès d’Azure Active Directory et pour la récupération des jetons d’accès.
 - [Microsoft-Graph-client](https://github.com/microsoftgraph/msgraph-sdk-javascript) pour effectuer des appels à Microsoft Graph.
 
 Exécutez la commande suivante dans votre interface CLI.
@@ -32,9 +32,9 @@ npm install react-router-dom@4.3.1 bootstrap@4.3.1 reactstrap@7.1.0 @fortawesome
 npm install moment@2.24.0 msal@0.2.4 @microsoft/microsoft-graph-client@1.5.2
 ```
 
-## <a name="design-the-app"></a>Concevoir l'application
+## <a name="design-the-app"></a>Concevoir l’application
 
-Commencez par créer une barre de navigation pour l'application. Créez un fichier dans le `./src` répertoire nommé `Navbar.js` et ajoutez le code suivant.
+Commencez par créer une barre de navigation pour l’application. Créez un fichier dans le `./src` répertoire nommé `Navbar.js` et ajoutez le code suivant.
 
 ```JSX
 import React from 'react';
@@ -157,7 +157,7 @@ export default class NavBar extends React.Component {
 }
 ```
 
-Ensuite, créez une page d'accueil pour l'application. Créez un fichier dans le `./src` répertoire nommé `Welcome.js` et ajoutez le code suivant.
+Ensuite, créez une page d’accueil pour l’application. Créez un fichier dans le `./src` répertoire nommé `Welcome.js` et ajoutez le code suivant.
 
 ```JSX
 import React from 'react';
@@ -198,7 +198,7 @@ export default class Welcome extends React.Component {
 }
 ```
 
-À présent, créez un message d'erreur pour afficher les messages destinés à l'utilisateur. Créez un fichier dans le `./src` répertoire nommé `ErrorMessage.js` et ajoutez le code suivant.
+À présent, créez un message d’erreur pour afficher les messages destinés à l’utilisateur. Créez un fichier dans le `./src` répertoire nommé `ErrorMessage.js` et ajoutez le code suivant.
 
 ```JSX
 import React from 'react';
@@ -220,7 +220,7 @@ export default class ErrorMessage extends React.Component {
 }
 ```
 
-Maintenant que les composants de base sont définis, mettez à jour l'application pour les utiliser. Tout d'abord, `./src/index.css` Ouvrez le fichier et remplacez l'intégralité de son contenu par ce qui suit.
+Maintenant que les composants de base sont définis, mettez à jour l’application pour les utiliser. Tout d’abord, `./src/index.css` Ouvrez le fichier et remplacez l’intégralité de son contenu par ce qui suit.
 
 ```css
 body {
@@ -234,7 +234,7 @@ body {
 }
 ```
 
-Ensuite, ouvrez `./src/App.js` et remplacez l'intégralité de son contenu par ce qui suit.
+Ensuite, ouvrez `./src/App.js` et remplacez l’intégralité de son contenu par ce qui suit.
 
 ```JSX
 import React, { Component } from 'react';
@@ -294,6 +294,6 @@ class App extends Component {
 export default App;
 ```
 
-Enregistrez toutes vos modifications et actualisez la page. À présent, l'application doit être très différente.
+Enregistrez toutes vos modifications et actualisez la page. À présent, l’application doit être très différente.
 
-![Capture d'écran de la page d'accueil repensée](images/create-app-01.png)
+![Capture d’écran de la page d’accueil repensée](images/create-app-01.png)

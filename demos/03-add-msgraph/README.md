@@ -4,7 +4,7 @@
 
 Pour exécuter le projet terminé dans ce dossier, vous avez besoin des éléments suivants:
 
-- [Visual Studio](https://visualstudio.microsoft.com/vs/) installé sur votre ordinateur de développement. Si vous ne disposez pas de Visual Studio, reportez-vous au lien précédent pour obtenir les options de téléchargement. (**Remarque:** ce didacticiel a été écrit avec Visual Studio 2017 version 15,81. Les étapes de ce guide peuvent fonctionner avec d’autres versions, mais cela n’a pas été testé.)
+- [Node. js](https://nodejs.org) installé sur votre ordinateur de développement. Si vous n’avez pas node. js, consultez le lien précédent pour obtenir les options de téléchargement. (**Remarque:** ce didacticiel a été écrit avec le nœud version 10.15.3. Les étapes de ce guide peuvent fonctionner avec d’autres versions, mais cela n’a pas été testé.)
 - Soit un compte Microsoft personnel avec une boîte aux lettres sur Outlook.com, soit un compte professionnel ou scolaire Microsoft.
 
 Si vous n’avez pas de compte Microsoft, vous disposez de deux options pour obtenir un compte gratuit:
@@ -32,7 +32,7 @@ Si vous n’avez pas de compte Microsoft, vous disposez de deux options pour obt
 
     ![Capture d’écran de l’ID d’application de la nouvelle inscription de l’application](/tutorial/images/aad-application-id.png)
 
-1. Sous **Gérer**, sélectionnez **Authentification**. Recherchez la section **Grant implicite** et activez les **jetons d’accès** et les **jetons ID**. Cliquez sur **Enregistrer**.
+1. Sous **Gérer**, sélectionnez **Authentification**. Recherchez la section **Grant implicite** et activez les **jetons d’accès** et les **jetons ID**. Choisissez **Enregistrer**.
 
     ![Capture d’écran de la section Grant implicite](/tutorial/images/aad-implicit-grant.png)
 

@@ -3,7 +3,7 @@
 Ouvrez votre interface de ligne de commande (CLI), accédez à un répertoire dans lequel vous disposez de droits de création de fichiers et exécutez les commandes suivantes pour installer l’outil de création d’application de [réaction](https://www.npmjs.com/package/create-react-app) et créer une nouvelle application REACT.
 
 ```Shell
-npm install create-react-app@3.0.1 -g
+npm install create-react-app@3.1.1 -g
 create-react-app graph-tutorial
 ```
 
@@ -15,7 +15,7 @@ npm start
 
 Votre navigateur par défaut s' [https://localhost:3000/](https://localhost:3000) ouvre sur avec une page REACT par défaut. Si votre navigateur ne s’ouvre pas, ouvrez-le [https://localhost:3000/](https://localhost:3000) et accédez à pour vérifier que la nouvelle application fonctionne.
 
-Avant de poursuivre, installez des packages supplémentaires que vous utiliserez plus tard:
+Avant de poursuivre, installez des packages supplémentaires que vous utiliserez plus tard :
 
 - [REACT-Router-DOM](https://github.com/ReactTraining/react-router) pour le routage déclaratif au sein de l’application REACT.
 - [bootstrap](https://github.com/twbs/bootstrap) pour le style et les composants communs.
@@ -28,8 +28,8 @@ Avant de poursuivre, installez des packages supplémentaires que vous utiliserez
 Exécutez la commande suivante dans votre interface CLI.
 
 ```Shell
-npm install react-router-dom@5.0.0 bootstrap@4.3.1 reactstrap@8.0.0 @fortawesome/fontawesome-free@5.8.2
-npm install moment@2.24.0 msal@1.0.0 @microsoft/microsoft-graph-client@1.6.0
+npm install react-router-dom@5.0.1 bootstrap@4.3.1 reactstrap@8.0.1 @fortawesome/fontawesome-free@5.10.2
+npm install moment@2.24.0 msal@1.1.3 @microsoft/microsoft-graph-client@1.7.0
 ```
 
 ## <a name="design-the-app"></a>Concevoir l’application

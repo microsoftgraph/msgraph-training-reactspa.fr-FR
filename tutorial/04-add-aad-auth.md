@@ -74,11 +74,24 @@ async login() {
     await this.getUserProfile();
   }
   catch(err) {
-    var errParts = err.split('|');
+    var error = {};
+
+    if (typeof(err) === 'string') {
+      var errParts = err.split('|');
+      error = errParts.length > 1 ?
+        { message: errParts[1], debug: errParts[0] } :
+        { message: err };
+    } else {
+      error = {
+        message: err.message,
+        debug: JSON.stringify(err)
+      };
+    }
+
     this.setState({
       isAuthenticated: false,
       user: {},
-      error: { message: errParts[1], debug: errParts[0] }
+      error: error
     });
   }
 }
@@ -239,7 +252,7 @@ Maintenant, si vous enregistrez vos modifications et démarrez l’application, 
 
 ![Capture d’écran de la page d’accueil après la connexion](./images/add-aad-auth-01.png)
 
-Cliquez sur Avatar de l’utilisateur dans le coin supérieur droit pour **** accéder au lien Déconnexion. Cliquez **** sur Déconnexion pour réinitialiser la session et revenir à la page d’accueil.
+Cliquez sur Avatar de l’utilisateur dans le coin supérieur droit pour accéder au lien **déconnexion** . Cliquez sur **déconnexion** pour réinitialiser la session et revenir à la page d’accueil.
 
 ![Capture d’écran du menu déroulant avec le lien Déconnexion](./images/add-aad-auth-02.png)
 

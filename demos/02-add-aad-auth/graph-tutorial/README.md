@@ -2,34 +2,34 @@ Ce projet a été amorcé avec [Create REACT App](https://github.com/facebook/cr
 
 ## <a name="available-scripts"></a>Scripts disponibles
 
-Dans le répertoire du projet, vous pouvez exécuter les éléments suivants:
+Dans le répertoire du projet, vous pouvez exécuter les éléments suivants :
 
 ### `npm start`
 
-Exécute l’application en mode de développement.<br>
+Exécute l’application en mode de développement.<br />
 Ouvrez [http://localhost:3000](http://localhost:3000) pour l’afficher dans le navigateur.
 
-La page se recharge si vous effectuez des modifications.<br>
+La page se recharge si vous effectuez des modifications.<br />
 Vous verrez également des erreurs Lint dans la console.
 
 ### `npm test`
 
-Lance le testeur de test en mode espion interactif.<br>
+Lance le testeur de test en mode espion interactif.<br />
 Pour plus d’informations, consultez la section relative à l' [exécution des tests](https://facebook.github.io/create-react-app/docs/running-tests) .
 
 ### `npm run build`
 
-Crée l’application pour la production dans `build` le dossier.<br>
+Crée l’application pour la production dans `build` le dossier.<br />
 Elle regroupe correctement la réaction en mode de production et optimise la build pour obtenir les meilleures performances.
 
-La version est réduites et les noms de fichier incluent les hachages.<br>
-Votre application est prête à être déployée!
+La version est réduites et les noms de fichier incluent les hachages.<br />
+Votre application est prête à être déployée !
 
 Pour plus d’informations, consultez la section relative au [déploiement](https://facebook.github.io/create-react-app/docs/deployment) .
 
 ### `npm run eject`
 
-**Remarque: il s’agit d’une opération unidirectionnelle. Une fois `eject`que vous avez, vous ne pouvez plus revenir en arrière.**
+**Remarque : il s’agit d’une opération unidirectionnelle. Une fois `eject`que vous avez, vous ne pouvez plus revenir en arrière.**
 
 Si vous n’êtes pas satisfait de l’outil de génération et des choix `eject` de configuration, vous pouvez à tout moment. Cette commande permet de supprimer la dépendance de génération unique de votre projet.
 
@@ -42,3 +42,27 @@ Vous n’avez pas à jamais `eject`utiliser. L’ensemble de fonctionnalités or
 Pour plus d’informations, consultez la [documentation créer une application REACT](https://facebook.github.io/create-react-app/docs/getting-started).
 
 Pour en savoir plus, consultez la [documentation de REACT](https://reactjs.org/).
+
+### <a name="code-splitting"></a>Fractionnement du code
+
+Cette section a été déplacée ici :https://facebook.github.io/create-react-app/docs/code-splitting
+
+### <a name="analyzing-the-bundle-size"></a>Analyse de la taille de la tresse
+
+Cette section a été déplacée ici :https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+
+### <a name="making-a-progressive-web-app"></a>Création d’une application Web progressive
+
+Cette section a été déplacée ici :https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### <a name="advanced-configuration"></a>Configuration avancée
+
+Cette section a été déplacée ici :https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### <a name="deployment"></a>Déploiement
+
+Cette section a été déplacée ici :https://facebook.github.io/create-react-app/docs/deployment
+
+### <a name="npm-run-build-fails-to-minify"></a>`npm run build`échec de l’réduire
+
+Cette section a été déplacée ici :https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

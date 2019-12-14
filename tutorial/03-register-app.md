@@ -4,9 +4,12 @@ Dans cet exercice, vous allez créer une inscription de l’application Web Azur
 
 1. Ouvrez un navigateur et accédez au [Centre d’administration Azure Active Directory](https://aad.portal.azure.com). Connectez-vous à l’aide d’un **compte personnel** (compte Microsoft) ou d’un **compte professionnel ou scolaire**.
 
-1. Sélectionnez **Azure Active Directory** dans le volet de navigation de gauche, puis sélectionnez **inscriptions des applications** sous **gérer**.
+1. Sélectionnez **Azure Active Directory** dans le volet de navigation gauche, puis sélectionnez **Inscriptions d’applications** sous **Gérer**.
 
     ![Capture d’écran des inscriptions d’application ](./images/aad-portal-app-registrations.png)
+
+    > [!NOTE]
+    > Les utilisateurs Azure AD B2C peuvent uniquement voir les **inscriptions des applications (héritées)**. Dans ce cas, accédez directement à [https://aka.ms/appregistrations](https://aka.ms/appregistrations).
 
 1. Sélectionnez **Nouvelle inscription**. Sur la page **Inscrire une application**, définissez les valeurs comme suit.
 
@@ -20,6 +23,6 @@ Dans cet exercice, vous allez créer une inscription de l’application Web Azur
 
     ![Capture d’écran de l’ID d’application de la nouvelle inscription de l’application](./images/aad-application-id.png)
 
-1. Sous **Gérer**, sélectionnez **Authentification**. Recherchez la section **Grant implicite** et activez les **jetons d’accès** et les **jetons ID**. Choisissez **Enregistrer**.
+1. Sous **Gérer**, sélectionnez **Authentification**. Recherchez la section **Grant implicite** et activez les **jetons d’accès** et les **jetons ID**. Cliquez sur **Enregistrer**.
 
     ![Capture d’écran de la section Grant implicite](./images/aad-implicit-grant.png)

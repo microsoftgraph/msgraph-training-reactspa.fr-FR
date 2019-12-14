@@ -28,13 +28,13 @@ Avant de poursuivre, installez des packages supplémentaires que vous utiliserez
 Exécutez la commande suivante dans votre interface CLI.
 
 ```Shell
-npm install react-router-dom@5.0.1 bootstrap@4.3.1 reactstrap@8.0.1 @fortawesome/fontawesome-free@5.10.2
-npm install moment@2.24.0 msal@1.1.3 @microsoft/microsoft-graph-client@1.7.0
+npm install react-router-dom@5.1.2 bootstrap@4.4.1 reactstrap@8.1.1 @fortawesome/fontawesome-free@5.11.2
+npm install moment@2.24.0 msal@1.1.3 @microsoft/microsoft-graph-client@2.0.0
 ```
 
 ## <a name="design-the-app"></a>Concevoir l’application
 
-Commencez par créer une barre de navigation pour l’application. Créez un fichier dans le `./src` répertoire nommé `Navbar.js` et ajoutez le code suivant.
+Commencez par créer une barre de navigation pour l’application. Créez un fichier dans le `./src` répertoire nommé `NavBar.js` et ajoutez le code suivant.
 
 ```JSX
 import React from 'react';

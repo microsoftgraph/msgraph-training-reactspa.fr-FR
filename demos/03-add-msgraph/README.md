@@ -2,12 +2,12 @@
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-Pour exécuter le projet terminé dans ce dossier, vous avez besoin des éléments suivants:
+Pour exécuter le projet terminé dans ce dossier, vous avez besoin des éléments suivants :
 
-- [Node. js](https://nodejs.org) installé sur votre ordinateur de développement. Si vous n’avez pas node. js, consultez le lien précédent pour obtenir les options de téléchargement. (**Remarque:** ce didacticiel a été écrit avec le nœud version 10.15.3. Les étapes de ce guide peuvent fonctionner avec d’autres versions, mais cela n’a pas été testé.)
+- [Node. js](https://nodejs.org) installé sur votre ordinateur de développement. Si vous n’avez pas node. js, consultez le lien précédent pour obtenir les options de téléchargement. (**Remarque :** ce didacticiel a été écrit avec le nœud version 10.15.3. Les étapes de ce guide peuvent fonctionner avec d’autres versions, mais cela n’a pas été testé.)
 - Soit un compte Microsoft personnel avec une boîte aux lettres sur Outlook.com, soit un compte professionnel ou scolaire Microsoft.
 
-Si vous n’avez pas de compte Microsoft, vous disposez de deux options pour obtenir un compte gratuit:
+Si vous n’avez pas de compte Microsoft, vous disposez de deux options pour obtenir un compte gratuit :
 
 - Vous pouvez vous [inscrire pour obtenir un nouveau compte Microsoft personnel](https://signup.live.com/signup?wa=wsignin1.0&rpsnv=12&ct=1454618383&rver=6.4.6456.0&wp=MBI_SSL_SHARED&wreply=https://mail.live.com/default.aspx&id=64855&cbcxt=mai&bk=1454618383&uiflavor=web&uaid=b213a65b4fdc484382b6622b3ecaa547&mkt=E-US&lc=1033&lic=1).
 - Vous pouvez vous [inscrire au programme pour les développeurs office 365](https://developer.microsoft.com/office/dev-program) pour obtenir un abonnement gratuit à Office 365.
@@ -16,9 +16,11 @@ Si vous n’avez pas de compte Microsoft, vous disposez de deux options pour obt
 
 1. Ouvrez un navigateur et accédez au [Centre d’administration Azure Active Directory](https://aad.portal.azure.com). Connectez-vous à l’aide d’un **compte personnel** (compte Microsoft) ou d’un **compte professionnel ou scolaire**.
 
-1. Sélectionnez **Azure Active Directory** dans le volet de navigation de gauche, puis sélectionnez **inscriptions des applications** sous **gérer**.
+1. Sélectionnez **Azure Active Directory** dans le volet de navigation gauche, puis sélectionnez **Inscriptions d’applications** sous **Gérer**.
 
     ![Capture d’écran des inscriptions d’application ](/tutorial/images/aad-portal-app-registrations.png)
+
+    > **Remarque :** Les utilisateurs Azure AD B2C peuvent uniquement voir les **inscriptions des applications (héritées)**. Dans ce cas, accédez directement à [https://aka.ms/appregistrations](https://aka.ms/appregistrations).
 
 1. Sélectionnez **Nouvelle inscription**. Sur la page **Inscrire une application**, définissez les valeurs comme suit.
 
@@ -32,7 +34,7 @@ Si vous n’avez pas de compte Microsoft, vous disposez de deux options pour obt
 
     ![Capture d’écran de l’ID d’application de la nouvelle inscription de l’application](/tutorial/images/aad-application-id.png)
 
-1. Sous **Gérer**, sélectionnez **Authentification**. Recherchez la section **Grant implicite** et activez les **jetons d’accès** et les **jetons ID**. Choisissez **Enregistrer**.
+1. Sous **Gérer**, sélectionnez **Authentification**. Recherchez la section **Grant implicite** et activez les **jetons d’accès** et les **jetons ID**. Cliquez sur **Enregistrer**.
 
     ![Capture d’écran de la section Grant implicite](/tutorial/images/aad-implicit-grant.png)
 

@@ -4,7 +4,7 @@ Dans cet exercice, vous allez étendre l’application de l’exercice précéde
 
 1. Créez un fichier dans le `./src` répertoire nommé `Config.ts` et ajoutez le code suivant.
 
-    :::code language="typescript" source="../demo/graph-tutorial/src/Config.ts.example":::
+    :::code language="typescript" source="../demo/graph-tutorial/src/Config.example.ts":::
 
     Remplacez `YOUR_APP_ID_HERE` par l’ID de l’application dans le portail d’inscription des applications.
 
@@ -19,7 +19,7 @@ Dans cette section, vous allez créer un fournisseur d’authentification et met
 
     ```typescript
     import React from 'react';
-    import { UserAgentApplication } from 'msal';
+    import { PublicClientApplication } from '@azure/msal-browser';
 
     import { config } from './Config';
 
@@ -42,7 +42,7 @@ Dans cette section, vous allez créer un fournisseur d’authentification et met
     export default function withAuthProvider<T extends React.Component<AuthComponentProps>>
       (WrappedComponent: new(props: AuthComponentProps, context?: any) => T): React.ComponentClass {
       return class extends React.Component<any, AuthProviderState> {
-        private userAgentApplication: UserAgentApplication;
+        private publicClientApplication: PublicClientApplication;
 
         constructor(props: any) {
           super(props);
@@ -53,7 +53,7 @@ Dans cette section, vous allez créer un fournisseur d’authentification et met
           };
 
           // Initialize the MSAL application object
-          this.userAgentApplication = new UserAgentApplication({
+          this.publicClientApplication = new PublicClientApplication({
             auth: {
                 clientId: config.appId,
                 redirectUri: config.redirectUri
@@ -68,9 +68,9 @@ Dans cette section, vous allez créer un fournisseur d’authentification et met
         componentDidMount() {
           // If MSAL already has an account, the user
           // is already logged in
-          var account = this.userAgentApplication.getAccount();
+          const accounts = this.publicClientApplication.getAllAccounts();
 
-          if (account) {
+          if (accounts && accounts.length > 0) {
             // Enhance user object with data from Graph
             this.getUserProfile();
           }
@@ -91,11 +91,12 @@ Dans cette section, vous allez créer un fournisseur d’authentification et met
         async login() {
           try {
             // Login via popup
-            await this.userAgentApplication.loginPopup(
+            await this.publicClientApplication.loginPopup(
                 {
                   scopes: config.scopes,
                   prompt: "select_account"
               });
+
             // After login, get the user's profile
             await this.getUserProfile();
           }
@@ -109,27 +110,34 @@ Dans cette section, vous allez créer un fournisseur d’authentification et met
         }
 
         logout() {
-          this.userAgentApplication.logout();
+          this.publicClientApplication.logout();
         }
 
         async getAccessToken(scopes: string[]): Promise<string> {
           try {
+            const accounts = this.publicClientApplication
+              .getAllAccounts();
+
+            if (accounts.length <= 0) throw new Error('login_required');
             // Get the access token silently
             // If the cache contains a non-expired token, this function
             // will just return the cached token. Otherwise, it will
             // make a request to the Azure OAuth endpoint to get a token
-            var silentResult = await this.userAgentApplication.acquireTokenSilent({
-              scopes: scopes
-            });
+            var silentResult = await this.publicClientApplication
+                .acquireTokenSilent({
+                  scopes: scopes,
+                  account: accounts[0]
+                });
 
             return silentResult.accessToken;
           } catch (err) {
             // If a silent request fails, it may be because the user needs
             // to login or grant consent to one or more of the requested scopes
             if (this.isInteractionRequired(err)) {
-              var interactiveResult = await this.userAgentApplication.acquireTokenPopup({
-                scopes: scopes
-              });
+              var interactiveResult = await this.publicClientApplication
+                  .acquireTokenPopup({
+                    scopes: scopes
+                  });
 
               return interactiveResult.accessToken;
             } else {
@@ -189,14 +197,15 @@ Dans cette section, vous allez créer un fournisseur d’authentification et met
           return (
             error.message.indexOf('consent_required') > -1 ||
             error.message.indexOf('interaction_required') > -1 ||
-            error.message.indexOf('login_required') > -1
+            error.message.indexOf('login_required') > -1 ||
+            error.message.indexOf('no_account_in_silent_request') > -1
           );
         }
       }
     }
     ```
 
-1. Ouvrez `./src/App.tsx` et ajoutez l’instruction `import` suivante en haut du fichier.
+1. Ouvrez `./src/App.tsx` et ajoutez l' `import` instruction suivante en haut du fichier.
 
     ```typescript
     import withAuthProvider, { AuthComponentProps } from './AuthProvider';
@@ -214,7 +223,7 @@ Dans cette section, vous allez créer un fournisseur d’authentification et met
     export default withAuthProvider(App);
     ```
 
-1. Enregistrez vos modifications et actualisez le navigateur. Cliquez sur le bouton de connexion. vous serez redirigé vers `https://login.microsoftonline.com`. Connectez-vous avec votre compte Microsoft et acceptez les autorisations demandées. La page de l’application doit être actualisée, affichant le jeton.
+1. Enregistrez vos modifications et actualisez le navigateur. Cliquez sur le bouton de connexion et vous devriez voir une fenêtre contextuelle qui se charge `https://login.microsoftonline.com` . Connectez-vous avec votre compte Microsoft et acceptez les autorisations demandées. La page de l’application doit être actualisée, affichant le jeton.
 
 ### <a name="get-user-details"></a>Obtenir les détails de l’utilisateur
 
@@ -226,7 +235,7 @@ Dans cette section, vous obtiendrez les détails de l’utilisateur à partir de
 
     Cette opération implémente la fonction `getUserDetails`, qui utilise le kit de développement logiciel Microsoft Graph pour appeler le point de terminaison `/me` et renvoyer le résultat.
 
-1. Ouvrez `./src/AuthProvider.tsx` et ajoutez l’instruction `import` suivante en haut du fichier.
+1. Ouvrez `./src/AuthProvider.tsx` et ajoutez l' `import` instruction suivante en haut du fichier.
 
     ```typescript
     import { getUserDetails } from './GraphService';
@@ -234,7 +243,7 @@ Dans cette section, vous obtiendrez les détails de l’utilisateur à partir de
 
 1. Remplacez la fonction `getUserProfile` existante par le code suivant.
 
-    :::code language="typescript" source="../demo/graph-tutorial/src/AuthProvider.tsx" id="getUserProfileSnippet" highlight="6-15":::
+    :::code language="typescript" source="../demo/graph-tutorial/src/AuthProvider.tsx" id="getUserProfileSnippet" highlight="6-18":::
 
 1. Enregistrez vos modifications et démarrez l’application, après vous être connecté, vous devez revenir sur la page d’accueil, mais l’interface utilisateur doit changer pour indiquer que vous êtes connecté.
 
@@ -246,8 +255,8 @@ Dans cette section, vous obtiendrez les détails de l’utilisateur à partir de
 
 ## <a name="storing-and-refreshing-tokens"></a>Stockage et actualisation des jetons
 
-À ce stade, votre application a un jeton d’accès, qui est envoyé `Authorization` dans l’en-tête des appels d’API. Il s’agit du jeton qui permet à l’application d’accéder à Microsoft Graph pour le compte de l’utilisateur.
+À ce stade, votre application a un jeton d’accès, qui est envoyé dans l' `Authorization` en-tête des appels d’API. Il s’agit du jeton qui permet à l’application d’accéder à Microsoft Graph pour le compte de l’utilisateur.
 
 Cependant, ce jeton est de courte durée. Le jeton expire une heure après son émission. C’est là que le jeton d’actualisation devient utile. Le jeton d’actualisation permet à l’application de demander un nouveau jeton d’accès sans obliger l’utilisateur à se reconnecter.
 
-Étant donné que l’application utilise la bibliothèque MSAL, vous n’avez pas besoin d’implémenter de logique d’actualisation ou de stockage de jetons. Le `UserAgentApplication` jeton est mis en cache dans la session du navigateur. La `acquireTokenSilent` méthode vérifie d’abord le jeton mis en cache et, s’il n’a pas expiré, il le renvoie. Si elle a expiré, elle utilise le jeton d’actualisation mis en cache pour en obtenir une nouvelle. Vous utiliserez cette méthode plus dans le module suivant.
+Étant donné que l’application utilise la bibliothèque MSAL, vous n’avez pas besoin d’implémenter de logique d’actualisation ou de stockage de jetons. Le `PublicClientApplication` jeton est mis en cache dans la session du navigateur. La `acquireTokenSilent` méthode vérifie d’abord le jeton mis en cache et, s’il n’a pas expiré, il le renvoie. Si elle a expiré, elle utilise le jeton d’actualisation mis en cache pour en obtenir une nouvelle. Vous utiliserez cette méthode plus dans le module suivant.

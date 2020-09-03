@@ -6,23 +6,19 @@ Dans cet exercice, vous allez créer une inscription de l’application Web Azur
 
 1. Sélectionnez **Azure Active Directory** dans le volet de navigation gauche, puis sélectionnez **Inscriptions d’applications** sous **Gérer**.
 
-    ![Capture d’écran des inscriptions d’application ](./images/aad-portal-app-registrations.png)
+    ![Une capture d’écran des inscriptions d’applications ](./images/aad-portal-app-registrations.png)
 
     > [!NOTE]
-    > Les utilisateurs Azure AD B2C peuvent uniquement voir les **inscriptions des applications (héritées)**. Dans ce cas, accédez directement à [https://aka.ms/appregistrations](https://aka.ms/appregistrations).
+    > Les utilisateurs Azure AD B2C peuvent uniquement voir les **inscriptions des applications (héritées)**. Dans ce cas, accédez directement à [https://aka.ms/appregistrations](https://aka.ms/appregistrations) .
 
 1. Sélectionnez **Nouvelle inscription**. Sur la page **Inscrire une application**, définissez les valeurs comme suit.
 
     - Définissez le **Nom** sur `React Graph Tutorial`.
     - Définissez les **Types de comptes pris en charge** sur **Comptes dans un annuaire organisationnel et comptes personnels Microsoft**.
-    - Sous **URI de redirection**, définissez la première flèche déroulante sur `Web`, et la valeur sur `http://localhost:3000`.
+    - Sous **URI de redirection**, définissez la première flèche déroulante sur `Single-page application (SPA)`, et la valeur sur `http://localhost:3000`.
 
-    ![Capture d’écran de la page inscrire une application](./images/aad-register-an-app.png)
+    ![Capture d’écran de la page Inscrire une application](./images/aad-register-an-app.png)
 
 1. Choisissez **Inscrire**. Sur la page **didacticiel du graphique REACT** , copiez la valeur de l' **ID d’application (client)** et enregistrez-la, vous en aurez besoin à l’étape suivante.
 
-    ![Capture d’écran de l’ID d’application de la nouvelle inscription de l’application](./images/aad-application-id.png)
-
-1. Sous **Gérer**, sélectionnez **Authentification**. Recherchez la section **Grant implicite** et activez les **jetons d’accès** et les **jetons ID**. Cliquez sur **Enregistrer**.
-
-    ![Capture d’écran de la section Grant implicite](./images/aad-implicit-grant.png)
+    ![Une capture d’écran de l’ID d’application de la nouvelle inscription d'application](./images/aad-application-id.png)

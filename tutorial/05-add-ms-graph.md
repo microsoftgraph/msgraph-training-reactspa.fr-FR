@@ -6,34 +6,35 @@ Dans cet exercice, vous allez incorporer Microsoft Graph dans l’application. P
 
 1. Ouvrez `./src/GraphService.ts` et ajoutez la fonction suivante.
 
-    :::code language="typescript" source="../demo/graph-tutorial/src/GraphService.ts" id="getEventsSnippet":::
+    :::code language="typescript" source="../demo/graph-tutorial/src/GraphService.ts" id="getUserWeekCalendarSnippet":::
 
     Que fait ce code ?
 
-    - L’URL qui sera appelée est `/me/events`.
+    - L’URL qui sera appelée est `/me/calendarview`.
+    - La `header` méthode ajoute l' `Prefer: outlook.timezone=""` en-tête à la demande, ce qui entraîne des temps dans la réponse qui se trouve dans le fuseau horaire préféré de l’utilisateur.
+    - La `query` méthode ajoute les `startDateTime` `endDateTime` paramètres et, définissant la fenêtre de temps pour l’affichage Calendrier.
     - La `select` méthode limite les champs renvoyés pour chaque événement à ceux que l’affichage utilise réellement.
     - La `orderby` méthode trie les résultats en fonction de la date et de l’heure de leur création, avec l’élément le plus récent en premier.
+    - La `top` méthode limite les résultats aux premiers événements 50.
+    - Si la réponse contient une `@odata.nextLink` valeur, indiquant que davantage de résultats sont disponibles, un `PageIterator` objet est utilisé pour [Parcourir la collection](https://docs.microsoft.com/graph/sdks/paging?tabs=typeScript) et obtenir tous les résultats.
 
 1. Créez un composant REACT pour afficher les résultats de l’appel. Créez un fichier dans le `./src` répertoire nommé `Calendar.tsx` et ajoutez le code suivant.
 
     ```typescript
     import React from 'react';
+    import { NavLink as RouterNavLink } from 'react-router-dom';
     import { Table } from 'reactstrap';
-    import moment from 'moment';
+    import moment from 'moment-timezone';
+    import { findOneIana } from "windows-iana";
     import { Event } from 'microsoft-graph';
     import { config } from './Config';
-    import { getEvents } from './GraphService';
+    import { getUserWeekCalendar } from './GraphService';
     import withAuthProvider, { AuthComponentProps } from './AuthProvider';
 
     interface CalendarState {
+      eventsLoaded: boolean;
       events: Event[];
-    }
-
-    // Helper function to format Graph date/time
-    function formatDateTime(dateTime: string | undefined) {
-      if (dateTime !== undefined) {
-        return moment.utc(dateTime).local().format('M/D/YY h:mm A');
-      }
+      startOfWeek: Moment | undefined;
     }
 
     class Calendar extends React.Component<AuthComponentProps, CalendarState> {
@@ -41,18 +42,35 @@ Dans cet exercice, vous allez incorporer Microsoft Graph dans l’application. P
         super(props);
 
         this.state = {
-          events: []
+          eventsLoaded: false,
+          events: [],
+          startOfWeek: undefined
         };
       }
 
-      async componentDidMount() {
+      async componentDidUpdate() {
         try {
           // Get the user's access token
           var accessToken = await this.props.getAccessToken(config.scopes);
+          // Convert user's Windows time zone ("Pacific Standard Time")
+          // to IANA format ("America/Los_Angeles")
+          // Moment needs IANA format
+          var ianaTimeZone = findOneIana(this.props.user.timeZone);
+
+          // Get midnight on the start of the current week in the user's timezone,
+          // but in UTC. For example, for Pacific Standard Time, the time value would be
+          // 07:00:00Z
+          var startOfWeek = moment.tz(ianaTimeZone!.valueOf()).startOf('week').utc();
+
           // Get the user's events
-          var events = await getEvents(accessToken);
+          var events = await getUserWeekCalendar(accessToken, this.props.user.timeZone, startOfWeek);
+
           // Update the array of events in state
-          this.setState({events: events.value});
+          this.setState({
+            eventsLoaded: true,
+            events: events,
+            startOfWeek: startOfWeek
+          });
         }
         catch(err) {
           this.props.setError('ERROR', JSON.stringify(err));
@@ -71,13 +89,13 @@ Dans cet exercice, vous allez incorporer Microsoft Graph dans l’application. P
 
     Pour le moment, cela restitue simplement le tableau d’événements dans JSON sur la page.
 
-1. Ajoutez ce nouveau composant à l’application. Ouvrez `./src/App.tsx` et ajoutez l’instruction `import` suivante en haut du fichier.
+1. Ajoutez ce nouveau composant à l’application. Ouvrez `./src/App.tsx` et ajoutez l' `import` instruction suivante en haut du fichier.
 
     ```typescript
     import Calendar from './Calendar';
     ```
 
-1. Ajoutez le composant suivant juste après le `<Route>`.
+1. Ajoutez le composant suivant juste après le `<Route>` .
 
     ```typescript
     <Route exact path="/calendar"
@@ -92,13 +110,28 @@ Dans cet exercice, vous allez incorporer Microsoft Graph dans l’application. P
 
 ## <a name="display-the-results"></a>Afficher les résultats
 
-À présent, vous pouvez `Calendar` mettre à jour le composant pour afficher les événements de manière plus conviviale.
+À présent, vous pouvez mettre à jour le `Calendar` composant pour afficher les événements de manière plus conviviale.
 
-1. Remplacez la fonction `render` existante à `./src/Calendar.js` l’aide de la fonction suivante.
+1. Créez un fichier dans le `./src` répertoire nommé `Calendar.css` et ajoutez le code suivant.
+
+    :::code language="css" source="../demo/graph-tutorial/src/Calendar.css":::
+
+1. Créez un composant REACT pour afficher les événements sous forme de lignes de tableau. Créez un fichier dans le `./src` répertoire nommé `CalendarDayRow.tsx` et ajoutez le code suivant.
+
+    :::code language="typescript" source="../demo/graph-tutorial/src/CalendarDayRow.tsx" id="CalendarDayRowSnippet":::
+
+1. Ajoutez les `import` instructions suivantes en haut de **Calendar. TSX**.
+
+    ```typescript
+    import CalendarDayRow from './CalendarDayRow';
+    import './Calendar.css';
+    ```
+
+1. Remplacez la `render` fonction existante à l’aide de `./src/Calendar.tsx` la fonction suivante.
 
     :::code language="typescript" source="../demo/graph-tutorial/src/Calendar.tsx" id="renderSnippet":::
 
-    Cette méthode effectue une boucle dans la collection d’événements et ajoute une ligne de tableau pour chacun d’eux.
+    Cela divise les événements en jours et affiche une section de tableau pour chaque jour.
 
 1. Enregistrez les modifications et redémarrez l’application. Cliquez sur le lien **calendrier** et l’application doit maintenant afficher un tableau d’événements.
 

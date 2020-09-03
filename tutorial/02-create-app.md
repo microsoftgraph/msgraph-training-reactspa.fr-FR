@@ -5,7 +5,7 @@ Dans cette section, vous allez créer une nouvelle application REACT.
 1. Ouvrez votre interface de ligne de commande (CLI), accédez à un répertoire où vous disposez de droits pour créer des fichiers, puis exécutez les commandes suivantes pour créer une nouvelle application REACT.
 
     ```Shell
-    npx create-react-app@3.4.0 graph-tutorial --template typescript
+    npx create-react-app@3.4.1 graph-tutorial --template typescript
     ```
 
 1. Une fois la commande terminée, accédez au `graph-tutorial` répertoire dans votre interface CLI et exécutez la commande suivante pour démarrer un serveur Web local.
@@ -14,7 +14,7 @@ Dans cette section, vous allez créer une nouvelle application REACT.
     npm start
     ```
 
-Votre navigateur par défaut s' [https://localhost:3000/](https://localhost:3000) ouvre sur avec une page REACT par défaut. Si votre navigateur ne s’ouvre pas, ouvrez-le [https://localhost:3000/](https://localhost:3000) et accédez à pour vérifier que la nouvelle application fonctionne.
+Votre navigateur par défaut s’ouvre sur [https://localhost:3000/](https://localhost:3000) avec une page REACT par défaut. Si votre navigateur ne s’ouvre pas, ouvrez-le et accédez à [https://localhost:3000/](https://localhost:3000) pour vérifier que la nouvelle application fonctionne.
 
 ## <a name="add-node-packages"></a>Ajouter des packages de nœuds
 
@@ -25,14 +25,15 @@ Avant de poursuivre, installez des packages supplémentaires que vous utiliserez
 - [reactstrap](https://github.com/reactstrap/reactstrap) pour les composants REACT basés sur bootstrap.
 - [fontawesome](https://github.com/FortAwesome/Font-Awesome) n’est pas disponible pour les icônes.
 - [moment](https://github.com/moment/moment) de mise en forme des dates et des heures.
-- [MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-js) pour l’authentification auprès d’Azure Active Directory et pour la récupération des jetons d’accès.
+- [Windows-IANA](https://github.com/rubenillodo/windows-iana) pour traduire les fuseaux horaires Windows au format IANA.
+- [MSAL-navigateur](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) pour l’authentification auprès d’Azure Active Directory et pour la récupération des jetons d’accès.
 - [Microsoft-Graph-client](https://github.com/microsoftgraph/msgraph-sdk-javascript) pour effectuer des appels à Microsoft Graph.
 
 Exécutez la commande suivante dans votre interface CLI.
 
 ```Shell
-npm install react-router-dom@5.1.2 @types/react-router-dom@5.1.3 bootstrap@4.4.1 reactstrap@8.4.1 @types/reactstrap@8.4.2
-npm install @fortawesome/fontawesome-free@5.12.1 moment@2.24.0 msal@1.2.1 @microsoft/microsoft-graph-client@2.0.0 @types/microsoft-graph@1.12.0
+npm install react-router-dom@5.2.0 @types/react-router-dom@5.1.5 bootstrap@4.5.2 reactstrap@8.5.1 @types/reactstrap@8.5.1 @fortawesome/fontawesome-free@5.14.0
+npm install moment@2.27.0 moment-timezone@0.5.31 windows-iana@4.2.1 @azure/msal-browser@2.1.0 @microsoft/microsoft-graph-client@2.0.0 @types/microsoft-graph@1.18.0
 ```
 
 ## <a name="design-the-app"></a>Concevoir l’application

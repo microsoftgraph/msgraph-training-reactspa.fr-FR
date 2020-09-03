@@ -4,7 +4,7 @@
 
 Pour exécuter le projet terminé dans ce dossier, vous avez besoin des éléments suivants :
 
-- [Node. js](https://nodejs.org) installé sur votre ordinateur de développement. Si vous n’avez pas node. js, consultez le lien précédent pour obtenir les options de téléchargement. (**Remarque :** ce didacticiel a été écrit avec le nœud version 12.16.1. Les étapes de ce guide peuvent fonctionner avec d’autres versions, mais cela n’a pas été testé.)
+- [Node.js](https://nodejs.org) installé sur votre ordinateur de développement. Si vous n’avez pas Node.js, reportez-vous au lien précédent pour obtenir les options de téléchargement. (**Remarque :** ce didacticiel a été écrit avec le nœud version 12.16.1. Les étapes de ce guide peuvent fonctionner avec d’autres versions, mais cela n’a pas été testé.)
 - Soit un compte Microsoft personnel avec une boîte aux lettres sur Outlook.com, soit un compte professionnel ou scolaire Microsoft.
 
 Si vous n’avez pas de compte Microsoft, vous disposez de deux options pour obtenir un compte gratuit :
@@ -20,13 +20,13 @@ Si vous n’avez pas de compte Microsoft, vous disposez de deux options pour obt
 
     ![Une capture d’écran des inscriptions d’applications ](/tutorial/images/aad-portal-app-registrations.png)
 
-    > **Remarque :** Les utilisateurs Azure AD B2C peuvent uniquement voir les **inscriptions des applications (héritées)**. Dans ce cas, accédez directement à [https://aka.ms/appregistrations](https://aka.ms/appregistrations).
+    > **Remarque :** Les utilisateurs Azure AD B2C peuvent uniquement voir les **inscriptions des applications (héritées)**. Dans ce cas, accédez directement à [https://aka.ms/appregistrations](https://aka.ms/appregistrations) .
 
 1. Sélectionnez **Nouvelle inscription**. Sur la page **Inscrire une application**, définissez les valeurs comme suit.
 
     - Définissez le **Nom** sur `React Graph Tutorial`.
     - Définissez les **Types de comptes pris en charge** sur **Comptes dans un annuaire organisationnel et comptes personnels Microsoft**.
-    - Sous **URI de redirection**, définissez la première flèche déroulante sur `Web`, et la valeur sur `http://localhost:3000`.
+    - Sous **URI de redirection**, définissez la première flèche déroulante sur `Single-page application (SPA)`, et la valeur sur `http://localhost:3000`.
 
     ![Capture d’écran de la page Inscrire une application](/tutorial/images/aad-register-an-app.png)
 
@@ -34,13 +34,9 @@ Si vous n’avez pas de compte Microsoft, vous disposez de deux options pour obt
 
     ![Une capture d’écran de l’ID d’application de la nouvelle inscription d'application](/tutorial/images/aad-application-id.png)
 
-1. Sous **Gérer**, sélectionnez **Authentification**. Recherchez la section **Grant implicite** et activez les **jetons d’accès** et les **jetons ID**. Cliquez sur **Enregistrer**.
-
-    ![Une capture d’écran de la rubrique octroi implicite](/tutorial/images/aad-implicit-grant.png)
-
 ## <a name="configure-the-sample"></a>Configurer l’exemple
 
-1. Renommez `./graph-tutorial/src/Config.ts.example` le fichier `./graph-tutorial/src/Config.ts`.
+1. Renommez le `./graph-tutorial/src/Config.example.ts` fichier `./graph-tutorial/src/Config.ts` .
 1. Modifiez le `./graph-tutorial/src/Config.ts` fichier et effectuez les modifications suivantes.
     1. Remplacez `YOUR_APP_ID_HERE` par l' **ID d’application** que vous avez obtenu à partir du portail d’inscription des applications.
 1. Dans votre interface de ligne de commande (CLI), accédez au `graph-tutorial` répertoire et exécutez la commande suivante pour installer les conditions requises.

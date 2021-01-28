@@ -1,44 +1,46 @@
-Ce projet a été amorcé avec [Create REACT App](https://github.com/facebook/create-react-app).
+# <a name="getting-started-with-create-react-app"></a>Mise en place de la création d’une application React
+
+Ce projet a été bootstrapped avec [Create React App](https://github.com/facebook/create-react-app).
 
 ## <a name="available-scripts"></a>Scripts disponibles
 
-Dans le répertoire du projet, vous pouvez exécuter les éléments suivants :
+Dans le répertoire du projet, vous pouvez exécuter :
 
 ### `yarn start`
 
-Exécute l’application en mode de développement.<br />
-Ouvrez [http://localhost:3000](http://localhost:3000) pour l’afficher dans le navigateur.
+Exécute l’application en mode de développement.\
+[http://localhost:3000](http://localhost:3000)Ouvrez-le pour l’afficher dans le navigateur.
 
-La page se recharge si vous effectuez des modifications.<br />
-Vous verrez également des erreurs Lint dans la console.
+La page se recharge si vous a modifiez.\
+Vous verrez également des erreurs de liaison dans la console.
 
 ### `yarn test`
 
-Lance le testeur de test en mode espion interactif.<br />
-Pour plus d’informations, consultez la section relative à l' [exécution des tests](https://facebook.github.io/create-react-app/docs/running-tests) .
+Lance le programme d’essai en mode d’observation interactif.\
+Pour plus d’informations, voir la section [sur l’exécution](https://facebook.github.io/create-react-app/docs/running-tests) des tests.
 
 ### `yarn build`
 
-Crée l’application pour la production dans `build` le dossier.<br />
-Elle regroupe correctement la réaction en mode de production et optimise la build pour obtenir les meilleures performances.
+Crée l’application pour la production dans le `build` dossier.\
+Il regroupe correctement React en mode production et optimise la build pour optimiser les performances.
 
-La version est réduites et les noms de fichier incluent les hachages.<br />
-Votre application est prête à être déployée !
+La build est minifiée et les noms de fichiers incluent les hés.\
+Votre application est prête à être déployée !
 
-Pour plus d’informations, consultez la section relative au [déploiement](https://facebook.github.io/create-react-app/docs/deployment) .
+Pour plus [d’informations, voir](https://facebook.github.io/create-react-app/docs/deployment) la section sur le déploiement.
 
 ### `yarn eject`
 
-**Remarque : il s’agit d’une opération unidirectionnelle. Une fois `eject`que vous avez, vous ne pouvez plus revenir en arrière.**
+**Remarque : il s’agit d’une opération à sens seul. Une fois `eject` que vous, vous ne pouvez pas revenir en arrière !**
 
-Si vous n’êtes pas satisfait de l’outil de génération et des choix `eject` de configuration, vous pouvez à tout moment. Cette commande permet de supprimer la dépendance de génération unique de votre projet.
+Si vous n’êtes pas satisfait de l’outil de build et des choix de configuration, vous pouvez `eject` le faire à tout moment. Cette commande supprime la dépendance de build unique de votre projet.
 
-Au lieu de cela, il copiera tous les fichiers de configuration et les dépendances transitives (WebPack, Babel, ESLint, etc.) directement dans votre projet afin de disposer d’un contrôle total sur eux. Toutes les commandes sauf `eject` continueront de fonctionner, mais elles pointeront vers les scripts copiés afin que vous puissiez les modifier. À ce stade, vous êtes seul.
+Au lieu de cela, il copie tous les fichiers de configuration et les dépendances transitives (webpack, Contrôles, ESLint, etc.) directement dans votre projet pour que vous en copiiez le contrôle total. Toutes les commandes sauf fonctionneront toujours, mais elles pointent vers les scripts copiés afin de `eject` pouvoir les ajuster. À ce stade, vous êtes seul.
 
-Vous n’avez pas à jamais `eject`utiliser. L’ensemble de fonctionnalités organisée est adapté aux déploiements de petite et moyenne taille, et vous ne devez pas être obligé d’utiliser cette fonctionnalité. Toutefois, nous comprenons que cet outil ne serait pas utile si vous n’avez pas pu le personnaliser lorsque vous êtes prêt à le faire.
+Vous n’avez pas besoin de `eject` l’utiliser. L’ensemble de fonctionnalités organisées convient aux déploiements de petite et moyenne taille, et vous ne devez pas vous sentir obligé d’utiliser cette fonctionnalité. Toutefois, nous savons que cet outil ne serait pas utile si vous ne pouviez pas le personnaliser lorsque vous êtes prêt à l’utiliser.
 
 ## <a name="learn-more"></a>En savoir plus
 
-Pour plus d’informations, consultez la [documentation créer une application REACT](https://facebook.github.io/create-react-app/docs/getting-started).
+Vous pouvez en savoir plus dans la [documentation créer une application React.](https://facebook.github.io/create-react-app/docs/getting-started)
 
-Pour en savoir plus, consultez la [documentation de REACT](https://reactjs.org/).
+Pour en savoir plus sur React, consultez [la documentation React.](https://reactjs.org/)

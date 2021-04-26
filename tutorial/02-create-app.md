@@ -1,11 +1,11 @@
 <!-- markdownlint-disable MD002 MD041 -->
 
-Dans cette section, vous allez créer une application React.
+Dans cette section, vous allez créer une application React'application.
 
-1. Ouvrez votre interface de ligne de commande( CLI), accédez à un répertoire dans lequel vous avez le droit de créer des fichiers et exécutez les commandes suivantes pour créer une application React.
+1. Ouvrez votre interface de ligne de commande (CLI), accédez à un répertoire dans lequel vous avez le droit de créer des fichiers et exécutez les commandes suivantes pour créer une application React de commande.
 
     ```Shell
-    npx create-react-app@4.0.1 graph-tutorial --template typescript
+    yarn create react-app graph-tutorial --template typescript
     ```
 
 1. Une fois la commande terminé, modifiez le répertoire dans votre CLI et exécutez la commande suivante pour démarrer `graph-tutorial` un serveur web local.
@@ -15,43 +15,44 @@ Dans cette section, vous allez créer une application React.
     ```
 
     > [!NOTE]
-    > Si Ce n’est [pas le cas,](https://yarnpkg.com/) vous pouvez l’utiliser `npm start` à la place.
+    > Si Ce n'est [pas le cas,](https://yarnpkg.com/) vous pouvez l'utiliser `npm start` à la place.
 
-Votre navigateur par défaut s’ouvre [https://localhost:3000/](https://localhost:3000) avec une page React par défaut. Si votre navigateur ne s’ouvre pas, ouvrez-le et recherchez-le pour vérifier [https://localhost:3000/](https://localhost:3000) que la nouvelle application fonctionne.
+Votre navigateur par défaut s'ouvre [https://localhost:3000/](https://localhost:3000) avec une page de React par défaut. Si votre navigateur ne s'ouvre pas, ouvrez-le et recherchez-le pour vérifier [https://localhost:3000/](https://localhost:3000) que la nouvelle application fonctionne.
 
 ## <a name="add-node-packages"></a>Ajouter des packages de nœuds
 
 Avant de passer à la suite, installez des packages supplémentaires que vous utiliserez ultérieurement :
 
-- [react-router-dom pour](https://github.com/ReactTraining/react-router) le routage déclaratif à l’intérieur de l’application React.
+- [react-router-dom](https://github.com/ReactTraining/react-router) pour le routage déclaratif à l'intérieur de l React applet.
 - [bootstrap](https://github.com/twbs/bootstrap) pour les styles et les composants courants.
-- [reactstrap](https://github.com/reactstrap/reactstrap) pour les composants React basés sur Bootstrap.
+- [reactstrap](https://github.com/reactstrap/reactstrap) pour React composants basés sur Bootstrap.
 - [sans fontawesome pour](https://github.com/FortAwesome/Font-Awesome) les icônes.
 - [moment de](https://github.com/moment/moment) mise en forme des dates et heures.
-- [windows-iana pour](https://github.com/rubenillodo/windows-iana) la traduction des fuseaux horaires Windows au format IANA.
-- [msal-browser pour](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) l’authentification à Azure Active Directory et la récupération des jetons d’accès.
+- [windows-iana pour](https://github.com/rubenillodo/windows-iana) la traduction Windows fuseaux horaires au format IANA.
+- [msal-browser pour](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) l'authentification Azure Active Directory et la récupération des jetons d'accès.
 - [microsoft-graph-client pour](https://github.com/microsoftgraph/msgraph-sdk-javascript) effectuer des appels à Microsoft Graph.
 
 Exécutez la commande suivante dans votre CLI.
 
 ```Shell
-yarn add react-router-dom@5.2.0 @types/react-router-dom@5.1.7 bootstrap@4.6.0 reactstrap@8.9.0 @types/reactstrap@8.7.2 @fortawesome/fontawesome-free@5.15.2
-yarn add moment@2.29.1 moment-timezone@0.5.32 windows-iana@4.2.1 @azure/msal-browser@2.10.0 @microsoft/microsoft-graph-client@2.2.1 @types/microsoft-graph@1.28.0
+yarn add react-router-dom@5.2.0 bootstrap@4.6.0 reactstrap@8.9.0 @fortawesome/fontawesome-free@5.15.3
+yarn add moment-timezone@0.5.33 windows-iana@5.0.2 @azure/msal-browser@2.14.1 @microsoft/microsoft-graph-client@2.2.1
+yarn add -D @types/react-router-dom@5.1.7 @types/microsoft-graph@1.36.0
 ```
 
 ## <a name="design-the-app"></a>Concevoir l’application
 
-Commencez par créer une barre de navigation pour l’application.
+Commencez par créer une barre de navigation pour l'application.
 
 1. Créez un fichier dans `./src` le répertoire nommé et `NavBar.tsx` ajoutez le code suivant.
 
     :::code language="typescript" source="../demo/graph-tutorial/src/NavBar.tsx" id="NavBarSnippet":::
 
-1. Créez une page d’accueil pour l’application. Créez un fichier dans `./src` le répertoire nommé et `Welcome.tsx` ajoutez le code suivant.
+1. Créez une page d'accueil pour l'application. Créez un fichier dans `./src` le répertoire nommé et `Welcome.tsx` ajoutez le code suivant.
 
     :::code language="typescript" source="../demo/graph-tutorial/src/Welcome.tsx" id="WelcomeSnippet":::
 
-1. Créez un message d’erreur pour afficher les messages à l’utilisateur. Créez un fichier dans `./src` le répertoire nommé et `ErrorMessage.tsx` ajoutez le code suivant.
+1. Créez un message d'erreur pour afficher les messages à l'utilisateur. Créez un fichier dans `./src` le répertoire nommé et `ErrorMessage.tsx` ajoutez le code suivant.
 
     :::code language="typescript" source="../demo/graph-tutorial/src/ErrorMessage.tsx" id="ErrorMessageSnippet":::
 
@@ -105,6 +106,6 @@ Commencez par créer une barre de navigation pour l’application.
     export default App;
     ```
 
-1. Enregistrez toutes vos modifications et redémarrez l’application. L’application doit maintenant avoir une apparence très différente.
+1. Enregistrez toutes vos modifications et redémarrez l’application. L'application doit maintenant avoir une apparence très différente.
 
     ![Capture d’écran de la page d’accueil repensée](images/create-app-01.png)

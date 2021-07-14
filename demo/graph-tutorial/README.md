@@ -1,46 +1,46 @@
-# <a name="getting-started-with-create-react-app"></a>Mise en place de la création d’une application React
+# Getting Started with Create React App
 
-Ce projet a été bootstrapped avec [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## <a name="available-scripts"></a>Scripts disponibles
+## Available Scripts
 
-Dans le répertoire du projet, vous pouvez exécuter :
+In the project directory, you can run:
 
 ### `yarn start`
 
-Exécute l’application en mode de développement.\
-[http://localhost:3000](http://localhost:3000)Ouvrez-le pour l’afficher dans le navigateur.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-La page se recharge si vous a modifiez.\
-Vous verrez également des erreurs de liaison dans la console.
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
 ### `yarn test`
 
-Lance le programme d’essai en mode d’observation interactif.\
-Pour plus d’informations, voir la section [sur l’exécution](https://facebook.github.io/create-react-app/docs/running-tests) des tests.
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `yarn build`
 
-Crée l’application pour la production dans le `build` dossier.\
-Il regroupe correctement React en mode production et optimise la build pour optimiser les performances.
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-La build est minifiée et les noms de fichiers incluent les hés.\
-Votre application est prête à être déployée !
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-Pour plus [d’informations, voir](https://facebook.github.io/create-react-app/docs/deployment) la section sur le déploiement.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ### `yarn eject`
 
-**Remarque : il s’agit d’une opération à sens seul. Une fois `eject` que vous, vous ne pouvez pas revenir en arrière !**
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-Si vous n’êtes pas satisfait de l’outil de build et des choix de configuration, vous pouvez `eject` le faire à tout moment. Cette commande supprime la dépendance de build unique de votre projet.
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Au lieu de cela, il copie tous les fichiers de configuration et les dépendances transitives (webpack, Contrôles, ESLint, etc.) directement dans votre projet pour que vous en copiiez le contrôle total. Toutes les commandes sauf fonctionneront toujours, mais elles pointent vers les scripts copiés afin de `eject` pouvoir les ajuster. À ce stade, vous êtes seul.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-Vous n’avez pas besoin de `eject` l’utiliser. L’ensemble de fonctionnalités organisées convient aux déploiements de petite et moyenne taille, et vous ne devez pas vous sentir obligé d’utiliser cette fonctionnalité. Toutefois, nous savons que cet outil ne serait pas utile si vous ne pouviez pas le personnaliser lorsque vous êtes prêt à l’utiliser.
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## <a name="learn-more"></a>En savoir plus
+## Learn More
 
-Vous pouvez en savoir plus dans la [documentation créer une application React.](https://facebook.github.io/create-react-app/docs/getting-started)
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-Pour en savoir plus sur React, consultez [la documentation React.](https://reactjs.org/)
+To learn React, check out the [React documentation](https://reactjs.org/).
